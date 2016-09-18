@@ -12,6 +12,6 @@ module.exports = function(app){
 	})
 	// sends user to the friends objects
 	app.get('/api/friends', function(req, res){
-		res.sendFile(path.join(__dirname + '/../routing/friends.js'));
+		res.sendFile(path.join(__dirname + '/../data/friends.js'));
 	})
 };
