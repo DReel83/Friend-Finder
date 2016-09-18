@@ -6,12 +6,12 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/index.html'));
 	})
-
+	// Send user to the survey
 	app.get('/survey', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/survey.html'));
 	})
-
-	app.get('/reserve', function(req, res){
-		res.sendFile(path.join(__dirname + '/../public/reserve.html'));
+	// sends user to the friends objects
+	app.get('/api/friends', function(req, res){
+		res.sendFile(path.join(__dirname + '/../routing/friends.js'));
 	})
 };

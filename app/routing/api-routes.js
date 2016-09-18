@@ -1,32 +1,49 @@
-var tables = require("../data/table-data.js");
-var waitings = require("../data/waitinglist-data.js");
+var friendData 		= require('../data/friends.js');
+var path 			= require('path');
 
+var totalDifference = 0;
 
-module.exports = function (app){
-
-	app.get('/api/tables', function(req, res){
-		res.json(tables);
-	});
-	app.get('/api/waitlist', function(req, res){
-		res.json(waitings);
-		console.log(waitings);
+module.exports = function(app){
+	app.get('/api/friends', function(req, res){
+		res.json(friends);
 	});
 
+// Posts user input to the server
+	app.post('/api/friends', function(req, res){
 
-	app.post('/api/tables', function(req, res){
+		var greatMatch = {
+			name: "",
+			image: "",
+			matchDifference: 1000
+		};
+		var usrData 	= req.body;
+		var usrName 	= usrData.name;
+		var usrImage 	= usrData.image;
+		var usrScores 	= usrData.scores;
 
-		if (tables.length < 5){
-			tables.push(req.body);
-			res.json(true);
+		var totalDifference = 0;
+
+		//  nested for loop, which first loops though friend list and then loops though scores
+		for(var i = 0; i < [friends].length-1; i++){
+			console.log(friends[i].name);
+			totalDifference = 0;
+
+			for(var j = 0; j < 10; j++){
+				// Calculates the differce between friend scores
+				totalDifference += Math.abs(parseInt(usrScores[j]) - parseInt(friends[i].scores[j]));
+		
+				if (totalDifference <= greatMatch.friendDifference){
+
+			 
+					greatMatch.name = friends[i].name;
+					greatMatch.photo = friends[i].photo;
+					greatMatch.matchDifference = totalDifference;
+				}
+			}
 		}
-		else {
-			waitings.push(req.body);
-			res.json(false);
-		}
-	});
 
-	app.post('/api/clear', function(req, res){
-		tables = [];
-		waitings = [];
+		friends.push(usrData);
+ 
+		res.json(greatMatch);
 	});
-}; 
+};
