@@ -1,7 +1,7 @@
 {
   "name": "friend-finder",
   "version": "1.0.0",
-  "description": "The nnamesys it all.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[D\u001b[D\u001b[D\u001b[Ca\u001b[D\u001b[D\u001b[D\u001b[C\u001b[ame says it all.",
+  "description": "The name says it all.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[D\u001b[D\u001b[D\u001b[Ca\u001b[D\u001b[D\u001b[D\u001b[C\u001b[",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/DReel83/Friend-Finder.git"
   },
   "keywords": [
-    "finnd",
+    "find",
     "friend",
     "friends",
     "finder"
@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/DReel83/Friend-Finder/issues"
   },
-  "homepage": "https://github.com/DReel83/Friend-Finder#readme"
+  "homepage": "https://github.com/DReel83/Friend-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
 }
